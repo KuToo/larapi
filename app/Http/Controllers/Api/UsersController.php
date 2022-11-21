@@ -14,9 +14,6 @@ class UsersController extends Controller
     {
         $auth = Auth::user();
         $query = User::query()->where('pid', $auth->id);
-
-        //TODO::条件检索
-
         $total = (clone $query)->count();
         //分页
         $page = $request->input('size', 0);
