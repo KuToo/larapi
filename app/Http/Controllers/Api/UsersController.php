@@ -33,9 +33,7 @@ class UsersController extends Controller
         $data=[
             'account'=>$request->account,
             'password'=>bcrypt($request->account),
-            'name'=>empty($request->name)?$request->account:$request->name,
-            'creator_id'=>$auth->creator_id,
-            'pid'=>$auth->id,
+            'name'=>empty($request->name)?$request->account:$request->name
         ];
         $user = User::create($data);
         return $this->success(new UserResource($user));

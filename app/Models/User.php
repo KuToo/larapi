@@ -15,9 +15,6 @@ class User extends Authenticatable implements JWTSubject
 
     protected $guarded = [];
 
-    protected $dates = ['delete_at'];
-
-
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -26,13 +23,5 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    public function parent(){
-        return $this->belongsTo(User::class,'pid','id');
-    }
-
-    public function sons(){
-        return $this->hasMany(User::class,'pid','id');
     }
 }
